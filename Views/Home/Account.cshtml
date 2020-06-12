@@ -1,0 +1,43 @@
+<marquee direction="scroll">
+    <img src="https://media1.tenor.com/images/abb9bb0bb79865bfc4ac963d4c30eb7a/tenor.gif?itemid=11191352" height="75" width="75">
+</marquee>
+
+@model Transaction
+
+<h1>Welcome, @ViewBag.User.FirstName @ViewBag.User.LastName</h1>
+
+<p><h4>Current balance: <span class="balance">@ViewBag.User.Balance.ToString("C")</span></h4></p>
+
+<form asp-action="Transaction" asp-controller="Home" method="post">
+    <div class="form-group">
+        <label asp-for="Amount"></label>
+        <span asp-validation-for="Amount"></span>
+        <input asp-for="Amount" class="form-control">
+        <input type="hidden" asp-for="UserId" value="@ViewBag.User.UserId">
+    </div>
+    <input type="submit" value="Submit" class="btn btn-success submit">
+</form>
+<br>
+<table class="table table-bordered table-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trans in ViewBag.Transactions)
+        {
+            <tr>
+                <td>$@trans.Amount.ToString("N2")</td>
+                <td>@trans.CreatedAt.ToString("ddd dd MMM yyyy")</td>
+                <td>@trans.CreatedAt.ToString("h:mm tt")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<marquee direction="scroll">
+    <img src="https://media1.tenor.com/images/abb9bb0bb79865bfc4ac963d4c30eb7a/tenor.gif?itemid=11191352" height="75" width="75">
+</marquee>

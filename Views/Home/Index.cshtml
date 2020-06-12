@@ -1,0 +1,37 @@
+﻿<marquee direction="scroll">
+    <img src="https://media1.tenor.com/images/abb9bb0bb79865bfc4ac963d4c30eb7a/tenor.gif?itemid=11191352" height="75" width="75">
+</marquee>
+
+@model User
+
+<div class="wrapper">
+    <h1 style="color: SaddleBrown">Register</h1> <br> <a href="/login">Already Registered?</a> <br><br>
+    <form asp-action="Create" asp-controller="Home" method="post">
+        <div class="form-group">
+            <label asp-for="FirstName"></label>
+            <span asp-validation-for="FirstName"></span>
+            <input type="text" asp-for="FirstName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName"></label>
+            <span asp-validation-for="LastName"></span>
+            <input type="text" asp-for="LastName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <span asp-validation-for="Email"></span>
+            <input type="text" asp-for="Email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <span asp-validation-for="Password"></span>
+            <input asp-for="Password" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="Confirm"></label>
+            <span asp-validation-for="Confirm"></span>
+            <input asp-for="Confirm" class="form-control">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+</div>
